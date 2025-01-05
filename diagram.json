@@ -1,0 +1,103 @@
+{
+    "version": 1,
+    "author": "Justin Poirier",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "board-esp32-devkit-c-v4",
+            "id": "esp",
+            "top": -124.8,
+            "left": -340.76,
+            "attrs": { "env": "micropython-20231227-v1.22.0" }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led1",
+            "top": 145.6,
+            "left": -399,
+            "rotate": 180,
+            "attrs": { "color": "red" }
+        },
+        {
+            "type": "wokwi-potentiometer",
+            "id": "pot1",
+            "top": -298.9,
+            "left": -384.2,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-pushbutton",
+            "id": "btn1",
+            "top": 563,
+            "left": -585.6,
+            "attrs": { "color": "red" }
+        },
+        {
+            "type": "wokwi-pushbutton",
+            "id": "btn2",
+            "top": 649.4,
+            "left": -624,
+            "attrs": { "color": "green" }
+        },
+        {
+            "type": "wokwi-pushbutton",
+            "id": "btn3",
+            "top": 467,
+            "left": -508.8,
+            "attrs": { "color": "blue" }
+        },
+        {
+            "type": "wokwi-servo",
+            "id": "servo1",
+            "top": -923.6,
+            "left": -547.2,
+            "attrs": { "hornColor": "#004499" }
+        },
+        {
+            "type": "wokwi-servo",
+            "id": "servo2",
+            "top": -789.2,
+            "left": -499.2,
+            "attrs": { "hornColor": "#448800" }
+        },
+        {
+            "type": "wokwi-servo",
+            "id": "servo3",
+            "top": -645.2,
+            "left": -432,
+            "attrs": { "hornColor": "#444499" }
+        },
+        {
+            "type": "wokwi-servo",
+            "id": "servo4",
+            "top": -491.6,
+            "left": -384,
+            "attrs": { "hornColor": "#880011" }
+        }
+    ],
+    "connections": [
+        ["esp:TX", "$serialMonitor:RX", "", []],
+        ["esp:RX", "$serialMonitor:TX", "", []],
+        ["esp:13", "led1:A", "green", ["h0"]],
+        ["esp:14", "btn1:1.l", "red", ["h0"]],
+        ["esp:27", "btn2:1.l", "green", ["h0"]],
+        ["esp:34", "pot1:SIG", "gold", ["h0"]],
+        ["esp:25", "servo1:PWM", "orange", ["h-297.45", "v-528.2"]],
+        ["esp:26", "servo2:PWM", "orange", ["h-220.65", "v-374.6"]],
+        ["esp:33", "servo3:PWM", "orange", ["h-143.85", "v-547.4"]],
+        ["esp:32", "servo4:PWM", "orange", ["h-86.25", "v-384.2"]],
+        ["btn3:1.l", "esp:12", "blue", ["v-96", "h163.05"]],
+        ["esp:GND.1", "led1:C", "black", ["h0"]],
+        ["esp:5V", "servo4:V+", "red", ["h-76.65", "v-508.9"]],
+        ["esp:5V", "servo3:V+", "red", ["h-124.65", "v-662.5"]],
+        ["esp:5V", "servo2:V+", "red", ["h-201.45", "v-806.5"]],
+        ["esp:5V", "servo1:V+", "red", ["h-278.25", "v-940.9"]],
+        ["esp:GND.1", "pot1:GND", "black", ["h0"]],
+        ["esp:GND.1", "servo4:GND", "black", ["h-67.05", "v-470.4"]],
+        ["esp:GND.1", "servo3:GND", "black", ["h-105.45", "v-624"]],
+        ["esp:GND.1", "servo2:GND", "black", ["h-182.25", "v-768"]],
+        ["esp:GND.1", "servo1:GND", "black", ["h-259.05", "v-902.4"]],
+        ["esp:3V3", "pot1:VCC", "green", ["h0"]]
+    ],
+    "dependencies": {}
+}
