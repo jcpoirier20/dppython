@@ -1,9 +1,19 @@
 from machine import Pin, PWM
 import time
 
+# HOME: hands open, wrists go to zero; Home is to load a sandwich
+# GRASP: Closes both hands to a closed position to hold the sandwich
+# FORWARD: The system executes a series of moves to move the sandwich forward
+# First: LeftHand opens, leftWrist rotates away from user, then closes
+# Second: RightHand opens, LeftWrist rotate forward into home position, then right hand closes
+# FORWARD: Same as before, but leads with the right hand
+
+# wrist movement and hand movment in degrees is already defined in CPP code. Go find it.
+# Check with Robotis about the dynamixel servos and their movement in degrees
+
 # Constants
-ENABLE2PASSFEEDFORWARD = None # TODO: need clarity on how this is meant to work. It was undefined in original code
-OFFSET = 180 # servo rotation in degrees before product assembly TODO: What is "before product assembly?"
+ENABLE2PASSFEEDFORWARD = None # potentially a boolean that would become true if the feedforward button was allowed to be pressed/executed
+OFFSET = 180 # servo rotation in degrees before product assembly TODO: What is "before product assembly?" No idea. Seems unnecessary until we know how the servos are oriented
 HAND_HOME = OFFSET
 HAND_OPEN = HAND_HOME
 HAND_HALF_OPEN = HAND_HOME + 45
